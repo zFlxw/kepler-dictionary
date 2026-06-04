@@ -1,9 +1,9 @@
 {
-  "id": "dev.flxw.kepler-plugin-template",
-  "name": "Flxw's Plugin Template",
+  "id": "dev.flxw.kepler-dictionary",
+  "name": "Dictionary",
   "version": "1.0.0",
   "author": "Flxw",
-  "icon": "hammer",
-  "bundleName": "flxws-kepler-plugin-template",
-  "packageName": "@zflxw/kepler-plugin-template"
+  "icon": "book",
+  "bundleName": "flxws-kepler-dictionary",
+  "packageName": "@zflxw/kepler-dictionary"
 }

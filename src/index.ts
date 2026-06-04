@@ -1,9 +1,9 @@
 import { definePlugin, Icon, KeplerPluginMeta } from '@kepler-app/plugin-sdk';
 import { registerFeatures } from './features';
-import { coinflip } from './features/coinflip';
+import { dictionary } from './features/dictionary';
 import config from '../plugin.config.json';
 
-const features = [coinflip];
+const features = [dictionary];
 const { settings, ...registrations } = registerFeatures(features);
 
 const metadata: KeplerPluginMeta = {
@@ -12,7 +12,8 @@ const metadata: KeplerPluginMeta = {
   version: config.version,
   author: config.author,
   icon: Icon.sfSymbol(config.icon),
-  permissions: [],
+  permissions: ['network'],
+  networkUrls: ['www.duden.de', 'www.dwds.de', 'api.dictionaryapi.dev'],
   settings,
 };
 
