@@ -8,11 +8,11 @@ Type `/dict` in Kepler to open the dictionary search mode, then enter any word t
 
 **Supported sources:**
 
-| Source | Language | Data |
-| ------ | -------- | ---- |
-| [Duden](https://www.duden.de) | German | Word, grammatical class, link to full entry |
-| [DWDS](https://www.dwds.de) | German | Headword + definitions from the article |
-| [Free Dictionary](https://dictionaryapi.dev) | English | Definitions with part of speech |
+| Source                                       | Language | Data                                        |
+| -------------------------------------------- | -------- | ------------------------------------------- |
+| [Duden](https://www.duden.de)                | German   | Word, grammatical class, link to full entry |
+| [DWDS](https://www.dwds.de)                  | German   | Headword + definitions from the article     |
+| [Free Dictionary](https://dictionaryapi.dev) | English  | Definitions with part of speech             |
 
 Each result shows the source as a badge and opens the full dictionary entry in your browser when selected.
 
@@ -36,6 +36,7 @@ The build step bundles the plugin and writes it to:
 ```
 
 Then in Kepler:
+
 1. Open Settings → Plugins
 2. Enable **Community Plugins** if not already active
 3. The Dictionary plugin should appear in the list — enable it
