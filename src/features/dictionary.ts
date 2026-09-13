@@ -98,7 +98,9 @@ async function queryDuden(word: string): Promise<PluginListItem[]> {
       : searchUrl;
 
     results.push({
-      id: `duden-${results.length}`,
+      // Ranking and dedup key off the id, so it has to identify the entry
+      // itself rather than its position in this particular result set.
+      id: `duden:${href}`,
       title,
       subtitle,
       icon: Icon.sfSymbol('book'),
@@ -126,8 +128,10 @@ async function queryDWDS(word: string): Promise<PluginListItem[]> {
   // dwdswb-definition spans are present on every word page regardless of article structure
   const defMatches = [...html.matchAll(/class="dwdswb-definition"[^>]*>([\s\S]*?)<\/span>/g)];
 
+  // Every definition links to the one article, so the index distinguishes them.
+  // It stays stable across lookups of the same word, which is what ranking needs.
   return defMatches.slice(0, 3).map((m, i) => ({
-    id: `dwds-${i}`,
+    id: `dwds:${wordUrl}#${i}`,
     title: lemma,
     subtitle: truncate(stripHtml(m[1]), 120),
     icon: Icon.sfSymbol('book.fill'),
@@ -142,6 +146,7 @@ type WiktionaryEntry = {
 };
 
 async function queryWiktionary(word: string): Promise<PluginListItem[]> {
+  const pageUrl = `https://en.wiktionary.org/wiki/${encodeURIComponent(word)}`;
   const apiUrl = `https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`;
   const body = await fetchText(apiUrl);
   if (body === null) return [];
@@ -158,11 +163,11 @@ async function queryWiktionary(word: string): Promise<PluginListItem[]> {
       if (!text) continue;
 
       results.push({
-        id: `wiktionary-${results.length}`,
+        id: `wiktionary:${pageUrl}#${results.length}`,
         title: word,
         subtitle: truncate(entry.partOfSpeech ? `[${entry.partOfSpeech}] ${text}` : text, 120),
         icon: Icon.sfSymbol('globe'),
-        action: Action.url(`https://en.wiktionary.org/wiki/${encodeURIComponent(word)}`),
+        action: Action.url(pageUrl),
         accessory: Accessory.badge('EN'),
       });
       if (results.length >= 3) return results;
