@@ -1,7 +1,7 @@
 {
   "id": "dev.flxw.kepler-dictionary",
   "name": "Dictionary",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Flxw",
   "icon": "book",
   "bundleName": "flxws-kepler-dictionary",

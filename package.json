@@ -1,6 +1,6 @@
 {
   "name": "@zflxw/kepler-dictionary",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Kepler plugin that looks up words across Duden, DWDS, and Wiktionary without leaving your keyboard.",
   "private": false,
   "type": "module",
