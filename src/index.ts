@@ -13,7 +13,7 @@ const metadata: KeplerPluginMeta = {
   author: config.author,
   icon: Icon.sfSymbol(config.icon),
   permissions: ['network'],
-  networkUrls: ['www.duden.de', 'www.dwds.de', 'api.dictionaryapi.dev'],
+  networkUrls: ['www.duden.de', 'www.dwds.de', 'en.wiktionary.org'],
   settings,
 };
 

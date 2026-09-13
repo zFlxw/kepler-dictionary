@@ -8,15 +8,27 @@ Type `/dict` in Kepler to open the dictionary search mode, then enter any word t
 
 **Supported sources:**
 
-| Source                                       | Language | Data                                        |
-| -------------------------------------------- | -------- | ------------------------------------------- |
-| [Duden](https://www.duden.de)                | German   | Word, grammatical class, link to full entry |
-| [DWDS](https://www.dwds.de)                  | German   | Headword + definitions from the article     |
-| [Free Dictionary](https://dictionaryapi.dev) | English  | Definitions with part of speech             |
+| Source                                        | Language | Data                                        |
+| --------------------------------------------- | -------- | ------------------------------------------- |
+| [Duden](https://www.duden.de)                 | German   | Word, grammatical class, link to full entry |
+| [DWDS](https://www.dwds.de)                   | German   | Headword + definitions from the article     |
+| [Wiktionary](https://en.wiktionary.org)       | English  | Definitions with part of speech             |
 
 Each result shows the source as a badge and opens the full dictionary entry in your browser when selected.
 
 When no query has been entered yet, the search mode shows how many sources are currently active.
+
+### Unhealthy sources
+
+Sources are queried in parallel, and results can only be shown once every one of
+them has answered — so a source whose host hangs would otherwise stall the entire
+lookup until the runtime's ~10s fetch timeout, long enough that Kepler gives up
+and shows nothing.
+
+To prevent that, a source that fails is skipped for 10 minutes before being tried
+again. An outage therefore costs one slow query rather than breaking lookups for
+as long as it lasts. Paused sources are named on the search mode's status line, and
+a word simply not being in a dictionary (HTTP 404) counts as a miss, not a failure.
 
 ## Installation
 
@@ -50,4 +62,4 @@ In the plugin settings you can toggle each source on or off individually:
 
 - **Enable Duden** — on by default
 - **Enable DWDS** — on by default
-- **Enable Free Dictionary (English)** — on by default
+- **Enable Wiktionary (English)** — on by default
