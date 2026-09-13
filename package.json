@@ -4,6 +4,11 @@
   "description": "A Kepler plugin that looks up words across Duden, DWDS, and Wiktionary without leaving your keyboard.",
   "private": false,
   "type": "module",
+  "kepler": {
+    "apiVersion": 1,
+    "manifest": "dist/manifest.json",
+    "entry": "dist/index.js"
+  },
   "files": [
     "src",
     "scripts",
@@ -34,7 +39,7 @@
     "wiktionary"
   ],
   "author": "Flxw",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.21.0",
   "dependencies": {
     "@kepler-app/plugin-sdk": "^1.1.0"
