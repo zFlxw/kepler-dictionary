@@ -1,16 +1,39 @@
 {
   "name": "@zflxw/kepler-dictionary",
   "version": "1.1.0",
-  "description": "",
+  "description": "A Kepler plugin that looks up words across Duden, DWDS, and Wiktionary without leaving your keyboard.",
   "private": false,
   "type": "module",
-  "main": "index.js",
+  "files": [
+    "src",
+    "scripts",
+    "plugin.config.json",
+    "tsconfig.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zFlxw/kepler-dictionary.git"
+  },
+  "homepage": "https://github.com/zFlxw/kepler-dictionary#readme",
+  "bugs": {
+    "url": "https://github.com/zFlxw/kepler-dictionary/issues"
+  },
   "scripts": {
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "kepler",
+    "kepler-plugin",
+    "dictionary",
+    "duden",
+    "dwds",
+    "wiktionary"
+  ],
+  "author": "Flxw",
   "license": "ISC",
   "packageManager": "pnpm@10.21.0",
   "dependencies": {
